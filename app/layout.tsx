@@ -20,8 +20,10 @@ export default function RootLayout({
     <html lang="fr">
       <body className='bodyLayout'>
         <Header />
-        <main className='mainWrapper'>
-          {children}
+        <main className='main'>
+          <div className='mainWrapper'>
+            {children}
+          </div>
         </main>
         <Footer />
       </body>

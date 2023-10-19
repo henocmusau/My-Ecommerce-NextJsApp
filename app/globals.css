@@ -7,24 +7,40 @@
   @apply box-border;
 }
 
+
 /* BODY */
 
 .bodyLayout {
-  @apply flex min-h-screen flex-col items-center justify-between overflow-x-hidden;
+  @apply flex min-h-screen flex-col items-center justify-between overflow-x-hidden text-primary bg-primary;
 }
 
 
-/* HEADER */
+/* HEADER & FOOTER*/
+
 .header,
 .footer {
-  @apply w-full;
+  @apply w-full shadow-md;
+  min-height: 3rem;
 }
 
+.footer {
+  @apply shadow-top;
+}
+
+.headerWrapper,
+.footerWrapper {
+  @apply w-full max-w-app mx-auto;
+}
 
 
 /* MAIN */
+
+.main {
+  @apply grow w-full;
+}
+
 .mainWrapper {
-  @apply grow w-full flex flex-col overflow-x-hidden;
+  @apply w-full flex flex-col overflow-x-hidden max-w-app mx-auto;
 }
 
 
