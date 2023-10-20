@@ -20,7 +20,7 @@ export default function Home() {
       <section className="productsList">
         <SectionTitle title="Meilleurs Plans" />
         {
-          plans && plans.map((article, i) => (
+          plans?.map((article, i) => (
             <ArticleItem key={i} {...article} />
           ))
         }

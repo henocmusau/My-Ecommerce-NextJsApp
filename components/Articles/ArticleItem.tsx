@@ -4,11 +4,16 @@ import { ArticleItem } from "@/types/Article";
 import Link from 'next/link';
 import Image from 'next/image';
 
+import ActionButton from '../Buttons/ActionButton';
+import { GiShoppingBag } from "react-icons/gi";
+import { BsCartPlus } from "react-icons/bs";
+
+
 export default function ArticleItem({ title, description, image, price, devise }: ArticleItem) {
 
     return (
         <article
-            className='md:rounded-xl flex flex-col bg-white/60 shadow-md group'
+            className='md:rounded-xl flex flex-col bg-white/60 md:shadow-md group'
         >
             <Link href={'/'} className='overflow-hidden md:rounded-t-xl w-full'>
                 <Image
@@ -17,13 +22,13 @@ export default function ArticleItem({ title, description, image, price, devise }
                     alt={title}
                 />
             </Link>
-            <h2 className='text-xl font-semibold pt-3 px-5'>
+            <h2 className='text-xl font-semibold pt-1 md:pt-3 px-5'>
                 <Link href={'/'}>
                     {title}
                 </Link>
             </h2>
             <p
-                className='text-secondary font-semibold text-xl px-5 py-1'
+                className='text-secondary grow font-semibold text-xl px-5 py-1'
             >
                 {`${price} ${devise.label}`}
             </p>
@@ -34,6 +39,12 @@ export default function ArticleItem({ title, description, image, price, devise }
                     </p>
                     : null
             }
+            <div className='px-5 flex gap-3 justify-self-end'>
+                <ActionButton type='button' title='Acheter maintenant' icon={<GiShoppingBag />} />
+                <button className=' bg-yellow-600 p-3 rounded-md'>
+                    <BsCartPlus className='mr-2 text-xl w-full text-center' />
+                </button>
+            </div>
 
         </article>
     )
