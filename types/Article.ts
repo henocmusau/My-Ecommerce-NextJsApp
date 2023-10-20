@@ -5,6 +5,11 @@ export type ArticleItem = {
     description?: string
     type: number
     image: StaticImageData
+    price: number
+    devise: {
+        id: number
+        label: string
+    }
 }
 
 

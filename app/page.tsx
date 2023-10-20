@@ -1,18 +1,32 @@
 import { articles } from "@/constants/articles"
 import ArticleItem from "@/components/Articles/ArticleItem"
+import SectionTitle from "@/components/SectionTitle"
+
+const plans = articles.slice(2).reverse()
 
 export default function Home() {
   return (
     <div className="mainWrapper">
       <section>FILTRES</section>
-      <section className="grid md:grid-cols-3 gap-4 md:gap-8">
+      <section className="productsList">
         {
           articles && articles.map((article, i) => (
             <ArticleItem key={i} {...article} />
           ))
         }
       </section>
-      <section>MEILLEURS PLANS</section>
+
+      {/* MEILLEURS PLANS */}
+      <section className="productsList">
+        <SectionTitle title="Meilleurs Plans" />
+        {
+          plans && plans.map((article, i) => (
+            <ArticleItem key={i} {...article} />
+          ))
+        }
+      </section>
+
+
       <section>SUGGESTIONS POUR LE CLIENT</section>
     </div>
   )
