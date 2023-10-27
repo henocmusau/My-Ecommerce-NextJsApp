@@ -11,7 +11,7 @@ export default function Header() {
                 Header
                 <button
                     onClick={toggleTheme}
-                    className='flex grow items-center justify-center font-semibold p-3 rounded-lg dark:bg-black bg-indigo-700 hover:bg-opacity-80 duration-200 text-primaryDark'
+                    className='flex grow items-center justify-center font-semibold p-3 rounded-lg bg-indigo-700 dark:bg-black hover:bg-opacity-80 duration-200 text-primaryDark'
                 >Change theme
                 </button>
             </div>

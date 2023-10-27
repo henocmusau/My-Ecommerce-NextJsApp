@@ -11,14 +11,9 @@ export default function useTheme(getInitialTheme: () => string, initialTheme?: s
 
         root.classList.remove(isDark ? 'light' : 'dark');
         root.classList.add(rawTheme);
-
-        setTheme(rawTheme)
     };
 
-    if (initialTheme) {
-        rawSetTheme(initialTheme);
-    }
-    const toggleTheme = () => theme === 'light' ? rawSetTheme('dark') : rawSetTheme('light')
+    const toggleTheme = () => theme === 'light' ? setTheme('dark') : setTheme('light')
 
     useEffect(() => {
         rawSetTheme(theme);

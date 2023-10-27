@@ -15,8 +15,6 @@ export default function useStorage(id: string, initialValue: () => string | stri
         } else { return null }
     })
 
-    console.log(value)
-
     useEffect(() => {
         window.localStorage.setItem(prefix, JSON.stringify(value))
     }, [prefix, value])
