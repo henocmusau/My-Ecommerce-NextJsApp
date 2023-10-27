@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 // import { Inter } from 'next/font/google'
+
+import { ThemeProvider } from "@/utils/context/theme";
+
 import './globals.css'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer.tsx/Footer'
@@ -17,14 +20,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr">
-      <body className='bodyLayout'>
-        <Header />
-        <main className='main'>
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
+    <ThemeProvider>
+      <html lang="fr">
+        <body className='bodyLayout'>
+          <Header />
+          <main className='main'>
+            {children}
+          </main>
+          <Footer />
+        </body>
+      </html>
+    </ThemeProvider>
   )
 }
