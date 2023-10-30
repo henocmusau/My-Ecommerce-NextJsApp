@@ -1,31 +1,31 @@
-import { articles } from "@/constants/articles"
-import ArticleItem from "@/components/Articles/ArticleItem"
+import ProductItem from "@/components/Products/ProductItem"
 import SectionTitle from "@/components/SectionTitle"
+import ProductsList from "@/components/Products/ProductsList"
 
+
+import { articles } from "@/constants/articles"
+
+const products = articles
 const plans = articles.slice(2).reverse()
 
 export default function Home() {
   return (
     <div className="mainWrapper">
-      <section>FILTRES</section>
-      <section className="productsList">
-        {
-          articles && articles.map((article, i) => (
-            <ArticleItem key={i} {...article} />
-          ))
-        }
-      </section>
+
+      {/* LISTE DES PRODUITS ET FILTRES */}
+      {
+        products ? <ProductsList products={products} /> : null
+      }
 
       {/* MEILLEURS PLANS */}
       <section className="productsList">
         <SectionTitle title="Meilleurs Plans" />
         {
-          plans?.map((article, i) => (
-            <ArticleItem key={i} {...article} />
+          plans?.map((p, i) => (
+            <ProductItem key={i} {...p} />
           ))
         }
       </section>
-
 
       <section>SUGGESTIONS POUR LE CLIENT</section>
     </div>

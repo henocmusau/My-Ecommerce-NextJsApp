@@ -11,7 +11,7 @@
 /* BODY */
 
 .bodyLayout {
-  @apply scroll-smooth break-words flex min-h-screen flex-col items-center justify-between overflow-x-hidden text-primary dark:text-primaryDark bg-primary dark:bg-primaryDark;
+  @apply scroll-smooth break-words flex min-h-screen flex-col items-center justify-between overflow-x-hidden text-primary dark:text-primaryDark bg-primary dark:bg-secondaryDark;
 }
 
 
@@ -46,6 +46,11 @@
 
 .productsList {
   @apply grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-x-8 md:gap-y-12 md:px-3 lg:px-0;
+}
+
+/* FILTERS */
+.filters {
+  @apply flex gap-x-3 my-2;
 }
 
 

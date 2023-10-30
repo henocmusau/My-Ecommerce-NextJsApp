@@ -1,6 +1,6 @@
 import { StaticImageData } from "next/image"
 
-export type ArticleItem = {
+export type ProductItem = {
     title: string
     description?: string
     type: number
@@ -13,5 +13,5 @@ export type ArticleItem = {
 }
 
 
-export type ArticleList = ArticleItem[]
+export type ProductsList = ProductItem[]
 

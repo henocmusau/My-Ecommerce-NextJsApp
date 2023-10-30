@@ -1,8 +1,8 @@
 import { phone1, phone2, phone3, phone4, pc1, pc2, mac1, mac2, casque1, casque2 } from "@/assets/images";
-import { ArticleList } from "@/types/Article";
+import { ProductsList } from "@/types/Article";
 
 
-export const articles: ArticleList = [
+export const articles: ProductsList = [
     {
         title: 'Iphone 12 Max',
         description: "Un périphérique d’entrée permet d’introduire des éléments extérieurs dans l’ordinateur. On y retrouve par exemple le clavier, pour écrire du texte, la webcam, pour enregistrer une vidéo, un scanner, qui permet de numériser des documents, etc.",
@@ -26,7 +26,7 @@ export const articles: ArticleList = [
     },
     {
         title: 'Protool Casque BX',
-        type: 2,
+        type: 3,
         image: casque2,
         price: 32,
         devise: {

@@ -5,17 +5,17 @@ import Image from 'next/image';
 
 import ActionButton from '../Buttons/ActionButton';
 
-import { ArticleItem } from "@/types/Article";
+import { ProductItem } from "@/types/Article";
 
 import { GiShoppingBag } from "react-icons/gi";
 import { BsCartPlus } from "react-icons/bs";
 
 
-export default function ArticleItem({ title, description, image, price, devise }: ArticleItem) {
+export default function ProductItem({ title, description, image, price, devise }: ProductItem) {
 
     return (
         <article
-            className='md:rounded-xl flex flex-col bg-white/80 md:shadow-md group'
+            className='md:rounded-xl flex flex-col bg-white/80 md:shadow-md group dark:bg-primaryDark dark:text-secondaryDark'
         >
             <Link href={'/'} className='overflow-hidden md:rounded-t-xl w-full'>
                 <Image
@@ -35,13 +35,12 @@ export default function ArticleItem({ title, description, image, price, devise }
             >
                 {`${price} ${devise.label}`}
             </p>
-            {
-                description ?
-                    <p className='px-5 pb-5 text-secondary'>{description.substr(0, 120) + '...'}
-                        <Link className='underline pl-2 text-indigo-400' href={'/'}>Voir plus</Link>
-                    </p>
-                    : null
-            }
+
+            <p className='px-5 pb-5 text-secondary'>
+                {description ? description.substr(0, 120) + '...' : null}
+                <Link className='underline last:pl-2 text-indigo-400' href={'/'}>Voir les détails...</Link>
+            </p>
+
             <div className='px-5 pb-5 flex gap-3 justify-self-end'>
                 <ActionButton type='button' title='Acheter maintenant' icon={<GiShoppingBag />} />
                 <button className=' bg-yellow-600 font-semibold hover:bg-opacity-80 duration-200 p-3 rounded-md'>
