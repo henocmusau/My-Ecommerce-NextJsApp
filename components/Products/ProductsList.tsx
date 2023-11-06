@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { ProductsList as Props, ProductItem as Item } from '@/types/Article'
+import { ProductsList as List, ProductItem as Item } from '@/types/Article'
 import ProductItem from './ProductItem'
 import FilterButton from '../Buttons/FilterButton'
 import useFilterProducts from '@/hooks/useFilterProducts'
@@ -20,23 +20,23 @@ const filters = [
     },
 ]
 
-export default function ProductsList({ products }: { products: Props }) {
+export default function ProductsList({ products }: { products: List }) {
     const { filteredProducts, changeFilter, filter } = useFilterProducts(products)
 
     return (
         <>
             <section className='filters'>
-                <FilterButton handleClick={changeFilter} id={0} label='Tous' />
+                <FilterButton handleClick={changeFilter} f={filter} id='reset' label='Tous' />
                 {
-                    filters.map((filter, i) => (
-                        <FilterButton key={i} {...filter} handleClick={changeFilter} />
+                    filters.map((f, i) => (
+                        <FilterButton key={i} {...f} handleClick={changeFilter} f={filter} />
                     ))
                 }
                 <p>{JSON.stringify(filter)} </p>
             </section>
             <section className='productsList'>
                 {
-                    filteredProducts ? Object.values(filteredProducts).map((product, i) => (
+                    filteredProducts ? filteredProducts.map((product, i) => (
                         <ProductItem key={i} {...product} />
                     )) : null
                 }

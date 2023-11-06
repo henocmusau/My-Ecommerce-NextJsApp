@@ -14,7 +14,7 @@ export default function Home() {
 
       {/* LISTE DES PRODUITS ET FILTRES */}
       {
-        products ? <ProductsList products={products} /> : null
+        products ? <ProductsList products={JSON.parse(JSON.stringify(products))} /> : null
       }
 
       {/* MEILLEURS PLANS */}
