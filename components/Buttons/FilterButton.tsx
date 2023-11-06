@@ -7,8 +7,8 @@ type Props = {
     f: number[]
 }
 
-const normal = 'rounded-lg px-4 py-1 border border-indigo-400 dark:border-none dark:text-inherit dark:bg-red-700 bg-opacity-75 dark:bg-opacity-40 flex items-center justify-start'
-const ALL = 'rounded-lg px-4 py-1 border border-red-400 dark:border-none dark:text-inherit bg-sky-200 dark:bg-slate-700 bg-opacity-75 dark:bg-opacity-40 flex items-center justify-start'
+const normal = 'duration-300 rounded-lg px-4 py-1 bg-sky-200 dark:text-inherit dark:bg-slate-600 bg-opacity-75 dark:bg-opacity-40 flex items-center justify-start'
+const ALL = 'duration-300 rounded-lg px-4 py-1 dark:border-none dark:text-inherit bg-sky-400 dark:bg-indigo-700/40 bg-opacity-75 flex items-center justify-start'
 const checked = 'rounded-lg px-4 py-1 border border-sky-400 dark:border-none dark:text-inherit dark:bg-indigo-700 bg-opacity-75 dark:bg-opacity-40 flex items-center justify-start'
 
 export default function FilterButton({ label, handleClick, id, f }: Props) {
@@ -20,15 +20,15 @@ export default function FilterButton({ label, handleClick, id, f }: Props) {
     }
 
     const stylize = () => {
-        if (all) return ALL
-        if (isChecked()) return checked
+        if (all || isChecked()) return ALL
+        // if (isChecked()) return checked
         return normal
     }
 
     return (
         <button
             onClick={() => handleClick(id)}
-            className={stylize() + 'duration-150'}
+            className={stylize()}
         >
             {label}
         </button>

@@ -27,7 +27,12 @@ export default function Home() {
         }
       </section>
 
-      <section>SUGGESTIONS POUR LE CLIENT</section>
+      <section className="productsList">
+        <SectionTitle title="Quelques suggestions pour vous" />
+        {plans?.reverse().map((p, i) => (
+          <ProductItem key={i} {...p} />
+        ))}
+      </section>
     </div>
   )
 }
