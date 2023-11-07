@@ -42,7 +42,7 @@ export default function ProductItem({ title, description, image, price, devise }
             </p>
 
             <div className='px-5 pb-5 flex gap-3 justify-self-end'>
-                <ActionButton type='button' title='Acheter maintenant' icon={<GiShoppingBag />} />
+                <ActionButton type='button' title='Acheter maintenant' icon={<GiShoppingBag className='z-0' />} />
                 <button className=' bg-yellow-600 font-semibold hover:bg-opacity-80 duration-200 p-3 rounded-md'>
                     <BsCartPlus className='mr-2 text-xl w-full text-primaryDark text-center' />
                 </button>

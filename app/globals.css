@@ -19,7 +19,7 @@
 
 .header,
 .footer {
-  @apply w-full shadow-md;
+  @apply w-full shadow-md flex flex-col justify-center;
   min-height: 3rem;
 }
 
@@ -29,9 +29,12 @@
 
 .headerWrapper,
 .footerWrapper {
-  @apply w-full max-w-app mx-auto;
+  @apply relative w-full h-full max-w-app mx-auto px-3 lg:px-0 flex flex-nowrap justify-between items-center lg:flex-wrap;
 }
 
+.header .button {
+  @apply w-6 h-6 rounded-full font-bold dark:text-secondaryDark hover:text-secondary hover:dark:text-secondaryDark duration-150;
+}
 
 /* MAIN */
 
@@ -50,7 +53,7 @@
 
 /* FILTERS */
 .filters {
-  @apply flex gap-x-3 my-2 overflow-x-auto;
+  @apply flex gap-x-3 my-2 px-2 lg:px-0 overflow-x-auto;
 }
 
 

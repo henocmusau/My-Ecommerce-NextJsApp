@@ -32,7 +32,6 @@ export default function ProductsList({ products }: { products: List }) {
                         <FilterButton key={i} {...f} handleClick={changeFilter} f={filter} />
                     ))
                 }
-                <p>{JSON.stringify(filter)} </p>
             </section>
             <section className='productsList'>
                 {
