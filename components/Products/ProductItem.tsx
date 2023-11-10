@@ -31,7 +31,7 @@ export default function ProductItem({ title, description, image, price, devise }
                 </Link>
             </h2>
             <p
-                className='text-secondary grow font-semibold text-xl px-5 py-1'
+                className='text-indigo-500 dark:text-yellow-600 grow font-bold text-2xl px-5 py-1'
             >
                 {`${price} ${devise.label}`}
             </p>

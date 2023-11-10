@@ -31,6 +31,10 @@ const links = [
         label: 'Ordinateurs',
         link: '/computers',
     },
+    {
+        label: 'Autres',
+        link: '/others',
+    },
 ]
 
 const style = '-top-4 left-0 lg:top-0 absolute h-screen lg:w-auto lg:translate-x-0 lg:h-auto duration-150 lg:block lg:relative'

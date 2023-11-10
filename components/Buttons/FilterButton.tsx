@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { RiCheckFill } from "react-icons/ri";
+
 type Props = {
     label?: string,
     handleClick: (id: number | 'reset') => void,
@@ -30,6 +32,7 @@ export default function FilterButton({ label, handleClick, id, f }: Props) {
             onClick={() => handleClick(id)}
             className={stylize()}
         >
+            {isChecked() || all ? <RiCheckFill className='mr-2 duration-150' /> : null}
             {label}
         </button>
     )
