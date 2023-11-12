@@ -1,7 +1,8 @@
 import { connect } from 'mongoose'
+
 import { Devise } from './devise';
-// import { Devise } from './devise';
-// import { Creator } from './creator';
+import { Product } from './products';
+import { Creator } from './creator';
 
 try {
     await connect('mongodb://127.0.0.1:27017/blackx');
@@ -11,4 +12,4 @@ try {
     throw error
 }
 
-export { Devise }
+export { Devise, Product, Creator }

@@ -4,6 +4,8 @@ import ProductsList from "@/components/Products/ProductsList"
 
 
 import { articles } from "@/constants/articles"
+import ModalButton from "@/components/Buttons/ModalButton"
+import MainModal from "@/components/Modals/MainModal"
 
 const products = articles
 const plans = articles.slice(2).reverse()
@@ -33,6 +35,7 @@ export default function Home() {
           <ProductItem key={i} {...p} />
         ))}
       </section>
+      <MainModal />
     </div>
   )
 }

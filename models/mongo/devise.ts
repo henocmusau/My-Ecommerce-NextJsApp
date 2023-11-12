@@ -5,7 +5,7 @@ const deviseSchema = new Schema({
         type: String,
         enum: {
             values: ['CDF', '$', 'EUR'],
-            message: 'Les deux valeurs autorisées pour le symbole sont : CDF et $.'
+            message: 'Les valeurs autorisées pour le symbole sont : CDF, EUR et $.'
         },
         required: [true, 'Le nom de la dévise est réquis'],
         unique: true

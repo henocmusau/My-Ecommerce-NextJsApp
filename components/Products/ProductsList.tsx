@@ -4,6 +4,7 @@ import { ProductsList as List, ProductItem as Item } from '@/types/Article'
 import ProductItem from './ProductItem'
 import FilterButton from '../Buttons/FilterButton'
 import useFilterProducts from '@/hooks/useFilterProducts'
+import { createPortal } from 'react-dom'
 
 const filters = [
     {
