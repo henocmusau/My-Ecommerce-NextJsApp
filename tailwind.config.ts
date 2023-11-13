@@ -13,7 +13,8 @@ const config: Config = {
         'primary': '#1e293b',
         'secondary': '#64748b',
         'primaryDark': '#e2e8f0',
-        'secondaryDark': '#cbd5e1'
+        'secondaryDark': '#cbd5e1',
+        'super': '#4338ca'
       },
       backgroundColor: {
         'primary': '#f0f9ff',

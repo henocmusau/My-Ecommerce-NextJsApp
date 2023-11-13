@@ -1,7 +1,7 @@
 import { Schema, model, models } from "mongoose";
 
 const deviseSchema = new Schema({
-    label: {
+    symbol: {
         type: String,
         enum: {
             values: ['CDF', '$', 'EUR'],
@@ -9,6 +9,13 @@ const deviseSchema = new Schema({
         },
         required: [true, 'Le nom de la dévise est réquis'],
         unique: true
+    },
+
+    label: {
+        type: String,
+        required: [true, 'Le label de la dévise est réquis.'],
+        min: [1, 'Le label de la dévise ne peut être vide'],
+        trim: true
     }
 });
 

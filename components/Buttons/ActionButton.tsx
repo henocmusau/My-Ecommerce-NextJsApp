@@ -9,7 +9,7 @@ type Props = {
 export default function ActionButton({ title, type = 'button', icon }: Props) {
     return (
         <button
-            className='flex grow items-center justify-center font-semibold p-3 rounded-lg bg-indigo-700 dark:hover:bg-indigo-900 dark:bg-indigo-800 hover:bg-opacity-80 duration-200 text-primaryDark'
+            className='actionButton'
             type={type}
         >
             <span className='mr-2 text-xl animate-bounce'>

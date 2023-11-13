@@ -78,6 +78,6 @@ export async function POST(req: Request) {
 
     } catch (error: any) {
         if (error?.code === 11000) return mongoError(error, 'Carte d\'identité déjà utilisée!')
-        return NextResponse.json({ error: error?.message }, { status: 400 })
+        return NextResponse.json({ error }, { status: 400 })
     }
 }

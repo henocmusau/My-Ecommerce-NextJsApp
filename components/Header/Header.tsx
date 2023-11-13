@@ -57,7 +57,7 @@ export default function Header() {
                     {/* LOGO */}
                     <Link
                         href={'/'}
-                        className='text-3xl tracking-wider font-bold first-letter:text-indigo-700 dark:first-letter:text-indigo-400'
+                        className='text-3xl tracking-wider font-bold first-letter:text-super dark:first-letter:text-indigo-400'
                     >
                         BlacX
                     </Link>

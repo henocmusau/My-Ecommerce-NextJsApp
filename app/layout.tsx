@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/utils/context/theme";
 import './globals.css'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer.tsx/Footer'
+import { Toaster } from 'sonner';
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -28,6 +29,18 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <Toaster
+            toastOptions={
+              {
+                style: {
+                  backgroundColor: '#25273c',
+                  border: 'none',
+                  fontSize: '1em'
+                }
+              }
+            }
+            position="bottom-center"
+          />
         </body>
       </html>
     </ThemeProvider>

@@ -1,11 +1,10 @@
 'use client'
 import { useState } from 'react'
 
-function useMainModal() {
-    const [isOpen, setIsOpen] = useState(false)
+function useMainModal(initialValue?: boolean) {
+    const [isOpen, setIsOpen] = useState(() => initialValue ? initialValue : false)
 
     function closeMainModal() {
-        if (!isOpen) return
         setIsOpen(false)
     }
 

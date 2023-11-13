@@ -60,6 +60,14 @@
   @apply hover:bg-sky-700 duration-300 bg-indigo-800;
 }
 
+.actionLink {
+  @apply flex items-center px-6 py-4 bg-super/10 w-full dark:bg-primaryDark hover:bg-super/20 dark:hover:bg-slate-900/60 duration-300 mb-2 last:mb-0 rounded-2xl;
+}
+
+.actionButton {
+  @apply flex grow items-center justify-center font-semibold p-3 rounded-lg bg-super dark:hover:bg-indigo-900 dark:bg-indigo-800 hover:bg-opacity-80 duration-200 text-primaryDark;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
