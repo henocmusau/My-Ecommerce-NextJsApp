@@ -10,7 +10,7 @@ import FormModalWrapper from '../Forms/FormModalWrapper'
 import useModalForm from '@/hooks/useModalForm'
 
 export default function MainModal() {
-    const { isOpen, openMainModal, closeMainModal, activeForm, closeForm, switchForm } = useModalForm()
+    const { isOpen, back, openMainModal, closeMainModal, activeForm, closeForm, switchForm } = useModalForm()
 
     return (
         <>
@@ -45,7 +45,7 @@ export default function MainModal() {
                 />
             </ModalContent>
 
-            <FormModalWrapper activeForm={activeForm} closeForm={closeForm} />
+            <FormModalWrapper back={back} activeForm={activeForm} closeForm={closeForm} />
         </>
     )
 }

@@ -4,16 +4,21 @@ type Props = {
     type?: string
     name: string
     label: string
+    // placeholder?: string
+    additionalStyle?: string
 }
 
-export default function FormInput({ type = 'text', name, label }: Props) {
+export default function FormInput({ type = 'text', name, label, additionalStyle }: Props) {
     return (
         <>
-            <label htmlFor={name} className='mt-4 mb-2 dark:text-secondaryDark'>{label} </label>
+            {/* <div className='mt-4 grow'> */}
+            {/* <label htmlFor={name} className='mb-2 ml-4 dark:text-secondaryDark'>{label} </label> */}
             <input
                 type={type}
-                className="border-2 w-full border-gray-300 dark:border-secondary bg-transparent h-10 px-4 py-2 rounded-lg text-medium focus:outline-none"
+                placeholder={label}
+                className={`${additionalStyle} inputBorder inputField `}
                 name={name}
+                id={name}
                 autoComplete='off'
             />
         </>

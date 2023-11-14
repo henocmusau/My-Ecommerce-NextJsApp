@@ -19,12 +19,19 @@ export default function useModalForm() {
         setActiveForm(formLabel)
     }, [activeForm])
 
+    const back = () => {
+        if (activeForm == '') return
+        closeForm()
+        openMainModal()
+    }
+
     return {
         isOpen,
         openMainModal,
         closeMainModal,
         closeForm,
         switchForm,
-        activeForm
+        activeForm,
+        back
     }
 }

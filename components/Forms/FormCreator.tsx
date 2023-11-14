@@ -1,19 +1,71 @@
 'use client'
-import React, { useState } from 'react'
-import ModalContent from '../Modals/ModalContent'
+import React from 'react'
+import { toast } from 'sonner'
 
-export default function FormCreator({ isOpen }: { isOpen: boolean }) {
-    const [active, setActive] = useState(isOpen)
+import FormInput from './FormInput'
+import SubmitButton from '../Buttons/SubmitButton'
+import Toast from '../Toasts/Toast'
+import RadioButton from './RadioButton'
+import { createNewCreator } from '@/serverActions/creator'
 
-    // const { isOpen, openMainModal, closeMainModal } = useMainModal(initialValue)
+export default function FormCreator({ closeForm }: { closeForm: () => void }) {
 
-    // if (isOpen) console.log('Form Devise')
+    async function onCreate(formData: FormData) {
+        const firstName = formData.get('firstName')?.toString().trim()
+        const lastName = formData.get('lastName')?.toString().trim()
+        const gender = formData.get('gender')?.toString().trim()
+        const phoneNumber = formData.get('phoneNumber')?.toString().trim()
+        const idCardNumber = formData.get('idCardNumber')?.toString().trim()
+        const city = formData.get('city')?.toString().trim()
+        const street = formData.get('street')?.toString().trim()
+
+        if (
+            !firstName
+            || firstName.length < 2
+            || !lastName
+            || lastName.length < 2
+            || !gender
+            || !phoneNumber
+            || phoneNumber.length < 5
+            || !idCardNumber
+            || idCardNumber.length < 3
+            || !city
+            || city.length < 3
+            || !street
+            || street.length < 3
+        ) {
+            toast(<Toast type='error' text={'Données incomplètes. Veuillez remplir les champs obligatoires.'} />)
+            return
+        }
+
+        const datas = await createNewCreator(formData)
+
+        if (datas.error) {
+            toast(<Toast type='error' text={datas.error.message.toString()} />)
+            return
+        }
+        closeForm()
+        toast(<Toast type='success' text='Enregistrement réussi !' />)
+    }
 
     return (
-        <ModalContent isOpen={active} closeModal={() => setActive(false)} id='creatorForm' >
-            <div className='h-52 bg-primaryDark text-white'>
-                CREATOR
-            </div>
-        </ModalContent>
+        <>
+            <form action={onCreate}>
+                <FormInput label='Prenom' name='firstName' />
+                <FormInput label='Nom' name='lastName' />
+                <label className='block mt-4 text-lg'>Genre :</label>
+                <div className='flex gap-x-5'>
+                    <RadioButton name='gender' value='M' label='Homme' />
+                    <RadioButton name='gender' value='F' label='Femme' />
+                    <RadioButton name='gender' value='O' label='Autre' />
+                </div>
+                <FormInput label='Téléphone' name='phoneNumber' />
+                <FormInput label='E-mail' name='email' />
+                <FormInput label='Ville' name='city' />
+                <FormInput label='Adresse' name='street' />
+                <FormInput label="N°Carte d'identité" name='idCardNumber' />
+                <SubmitButton />
+            </form>
+        </>
     )
 }

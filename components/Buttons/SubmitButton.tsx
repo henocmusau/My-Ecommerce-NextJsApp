@@ -13,7 +13,7 @@ export default function SubmitButton({ text = 'Enregistrer' }: Props) {
     <button
       type='submit'
       disabled={pending}
-      className='actionButton w-full mt-8'
+      className='actionButton w-full mt-8 disabled:bg-slate-400'
     >
       {text}
     </button>

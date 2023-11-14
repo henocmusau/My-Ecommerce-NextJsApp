@@ -35,7 +35,7 @@ export default function RootLayout({
                 style: {
                   backgroundColor: '#25273c',
                   border: 'none',
-                  fontSize: '.9 em'
+                  fontSize: '1em'
                 }
               }
             }

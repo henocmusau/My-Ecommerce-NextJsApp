@@ -68,6 +68,14 @@
   @apply flex grow items-center justify-center font-semibold p-3 rounded-lg bg-super dark:hover:bg-indigo-900 dark:bg-indigo-800 hover:bg-opacity-80 duration-200 text-primaryDark;
 }
 
+.inputBorder {
+  @apply border-2 border-gray-300 dark:border-secondary/30 focus:outline-none;
+}
+
+.inputField {
+  @apply w-full bg-transparent mt-4 focus:bg-slate-100 dark:focus:bg-super/10 h-10 px-4 py-5 rounded-lg;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

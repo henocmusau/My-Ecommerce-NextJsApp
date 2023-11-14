@@ -13,6 +13,7 @@ export interface ICreatorModel {
     phoneNumber: string
     createdAt: Date
     updatedAt: Date
+    email: string
 }
 
 const creatorSchema = new Schema<ICreatorModel>({
@@ -34,7 +35,7 @@ const creatorSchema = new Schema<ICreatorModel>({
         type: String,
         lowercase: true,
         trim: true,
-        required: [true, 'L\'image est réquise']
+        // required: [true, 'L\'image est réquise']
     },
     gender: {
         type: String,
@@ -73,6 +74,10 @@ const creatorSchema = new Schema<ICreatorModel>({
         trim: true,
         required: [true, 'Le numéro de téléphone est réquis'],
         minLength: [5, 'Le numéro de téléphone doit avoir au moins 5 caractères'],
+    },
+    email: {
+        type: String,
+        unique: true,
     }
 }, { timestamps: true });
 

@@ -9,7 +9,8 @@ export async function GET(req: Request) {
     try {
         // const { devise } = await req.json()
 
-        const datas = await Product.find().populate('creator', ['firstName', 'lastName', 'image', 'gender']).populate('devise', 'label')
+        // const datas = await Product.find().populate('creator', ['firstName', 'lastName', 'image', 'gender']).populate('devise', 'label')
+        const datas = await Creator.find()
         return returnMessage(datas)
         // const { devise } = await req.json()
         /*const datas = await Product.create({

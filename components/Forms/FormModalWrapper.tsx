@@ -1,39 +1,34 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import ModalContent from '../Modals/ModalContent'
-import useMainModal from '@/hooks/useMainModal'
 import FormDevise from './FormDevise'
+import FormProduct from './FormProduct'
+import FormCreator from './FormCreator'
 
 type Props = {
     activeForm: string
     closeForm: () => void
+    back: () => void
 }
 
-export default function FormModalWrapper({ activeForm, closeForm }: Props) {
+export default function FormModalWrapper({ activeForm, closeForm, back }: Props) {
     const isCreatorActive = activeForm === 'CREATOR'
     const isProductActive = activeForm === 'PRODUCT'
     const isDeviseActive = activeForm === 'DEVISE'
 
     return (
         <>
-            <ModalContent isForm={true} isOpen={isDeviseActive} closeModal={closeForm} id='creatorForm' >
+            <ModalContent back={back} isForm={true} isOpen={isDeviseActive} closeModal={closeForm} id='creatorForm' >
                 <FormDevise closeForm={closeForm} />
             </ModalContent>
 
-            <ModalContent isForm={true} isOpen={isProductActive} closeModal={closeForm} id='creatorForm' >
-                <div className='h-52 bg-primaryDark text-white'>
-                    {/* {children} */}
-                    PRODUCT FORM
-                </div>
+            <ModalContent back={back} isForm={true} isOpen={isProductActive} closeModal={closeForm} id='creatorForm' >
+                <FormProduct closeForm={closeForm} />
             </ModalContent>
 
-            <ModalContent isForm={true} isOpen={isCreatorActive} closeModal={closeForm} id='creatorForm' >
-                <div className='h-52 bg-primaryDark text-white'>
-                    {/* {children} */}
-                    CREATOR FORM
-                </div>
+            <ModalContent back={back} isForm={true} isOpen={isCreatorActive} closeModal={closeForm} id='creatorForm' >
+                <FormCreator closeForm={closeForm} />
             </ModalContent>
-
         </>
     )
 }
