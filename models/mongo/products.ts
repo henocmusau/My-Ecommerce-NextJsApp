@@ -24,7 +24,7 @@ const productSchema = new Schema({
     },
     devise: {
         type: 'ObjectId',
-        ref: 'Devise',
+        ref: 'Currency',
         required: [true, 'Chaque article doit avoir une dévise'],
     },
     price: {
@@ -56,4 +56,4 @@ export const Product = models.Product || model('Product', productSchema)
 //     }
 // });
 
-// export const Devise = model('Devise', deviseSchema)
+// export const Currency = model('Currency', deviseSchema)

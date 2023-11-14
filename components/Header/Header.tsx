@@ -9,6 +9,7 @@ import { BiSun, BiSolidSun } from 'react-icons/bi'
 import { FiShoppingCart } from 'react-icons/fi'
 import { IoSearch } from 'react-icons/io5'
 import { TfiClose } from 'react-icons/tfi'
+import SearchModal from '../Modals/SearchModal'
 
 const links = [
     {
@@ -86,9 +87,8 @@ export default function Header() {
                     </ul>
                 </nav>
                 <div className='flex items-center h-full gap-x-2'>
-                    <button>
-                        <IoSearch className='button' />
-                    </button>
+                    <SearchModal />
+
                     <button
                         onClick={toggleTheme}>
                         {theme === 'light' ?

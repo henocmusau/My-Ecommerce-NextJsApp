@@ -1,6 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
-const deviseSchema = new Schema({
+const currencySchema = new Schema({
     symbol: {
         type: String,
         enum: {
@@ -19,4 +19,4 @@ const deviseSchema = new Schema({
     }
 });
 
-export const Devise = models.Devise || model('Devise', deviseSchema)
+export const Currency = models.Currency || model('Currency', currencySchema)

@@ -1,5 +1,5 @@
-import { Devise, Product, Creator } from "@/models/mongo";
-// import { Devise } from "@/models/mongo/devise";
+import { Currency, Product, Creator } from "@/models/mongo";
+// import { Currency } from "@/models/mongo/devise";
 // import { Creator } from "@/models/mongo/creator";
 import { NextResponse } from "next/server";
 import { mongoError, returnMessage } from "./globalMessages";
@@ -20,7 +20,7 @@ export async function GET(req: Request) {
         })*/
         // console.log(devise)
 
-        // const datas = await Devise.create({ label: devise.toString() })
+        // const datas = await Currency.create({ label: devise.toString() })
         // const datas = await Product.find().populate('devise')
         /*const datas = await Product.create({
             title: 'Tecno POP 7',
@@ -72,7 +72,7 @@ export async function POST(req: Request) {
         //     }
         // })
 
-        // const datas = await Devise.create({ label: devise.toString() })
+        // const datas = await Currency.create({ label: devise.toString() })
 
         // console.log('User ' + datas?.id + ' created successfull')
         // return NextResponse.json({ datas }, { status: 201 })

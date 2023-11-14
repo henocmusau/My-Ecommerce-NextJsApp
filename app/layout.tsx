@@ -39,7 +39,7 @@ export default function RootLayout({
                 }
               }
             }
-            position="bottom-center"
+            position="top-center"
           />
         </body>
       </html>

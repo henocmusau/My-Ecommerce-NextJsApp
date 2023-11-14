@@ -12,6 +12,7 @@ export default function FormCreator({ closeForm }: { closeForm: () => void }) {
 
     async function onCreate(formData: FormData) {
         const firstName = formData.get('firstName')?.toString().trim()
+        const image = formData.get('image')
         const lastName = formData.get('lastName')?.toString().trim()
         const gender = formData.get('gender')?.toString().trim()
         const phoneNumber = formData.get('phoneNumber')?.toString().trim()
@@ -61,6 +62,7 @@ export default function FormCreator({ closeForm }: { closeForm: () => void }) {
                 </div>
                 <FormInput label='Téléphone' name='phoneNumber' />
                 <FormInput label='E-mail' name='email' />
+                <input type='image' name='image' />
                 <FormInput label='Ville' name='city' />
                 <FormInput label='Adresse' name='street' />
                 <FormInput label="N°Carte d'identité" name='idCardNumber' />

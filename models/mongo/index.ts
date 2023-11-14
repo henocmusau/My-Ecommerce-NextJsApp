@@ -1,6 +1,6 @@
 import { connect } from 'mongoose'
 
-import { Devise } from './devise';
+import { Currency } from './currency';
 import { Product } from './products';
 import { Creator } from './creator';
 
@@ -16,4 +16,4 @@ import { Creator } from './creator';
 
 // dbConnection()
 
-export { Devise, Product, Creator }
+export { Currency, Product, Creator }

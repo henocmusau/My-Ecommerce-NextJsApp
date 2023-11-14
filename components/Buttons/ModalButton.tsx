@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { AiOutlinePlus } from "react-icons/ai";
 
 export default function ModalButton({ openModal }: { openModal: () => void }) {
     const [isMounted, setisMounted] = useState(false)
@@ -10,23 +11,18 @@ export default function ModalButton({ openModal }: { openModal: () => void }) {
         if (typeof document !== 'undefined') {
             setisMounted(true)
         }
-
     }, [])
 
-    if (isMounted) {
-        return (
-            <>
-                {createPortal(
-                    <button onClick={openModal} className='fixed bottom-12 right-16 w-16 h-16 rounded-full mainButton'>
-                        <p className='text-3xl text-white'>
-                            +
-                        </p>
-                    </button>,
-                    document.body)
-                }
-            </>
-        )
-    } else {
-        return null
-    }
+    if (!isMounted) return null
+
+    return (
+        <>
+            {createPortal(
+                <button onClick={openModal} className='fixed align-middle text-4xl bottom-12 right-16 w-16 h-16 rounded-full mainButton'>
+                    +
+                </button>,
+                document.body
+            )}
+        </>
+    )
 }

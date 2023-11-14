@@ -21,20 +21,20 @@ export default function FormProduct({ closeForm }: Props) {
             <FormInput label='Titre' name='title' />
             <FormInput label='Description' name='description' />
             <FormInput label='Type de produit' name='type' />
-            <DeviseOptions />
+            <CurrencyOptions />
             <FormInput label='Prix' name='price' />
             <SubmitButton />
         </form>
     )
 }
 
-type Devise = {
+type Currency = {
     id: string
     symbol: string
     label: string
 }
 
-const devisesList: Devise[] = [
+const devisesList: Currency[] = [
     {
         id: '65521013d9261dc908d1b073',
         symbol: "$",
@@ -54,13 +54,13 @@ const devisesList: Devise[] = [
 
 import { Listbox } from '@headlessui/react'
 
-export function DeviseOptions() {
+export function CurrencyOptions() {
     const [query, setQuery] = useState('')
     const [selectedOptions, setSelectedOptions] = useState(devisesList[0])
 
     // console.log(selectedOptions)
 
-    // const filteredDevises =
+    // const filteredCurrencys =
     //     query === ''
     //         ? devisesList
     //         : devisesList.filter((devise) => {
