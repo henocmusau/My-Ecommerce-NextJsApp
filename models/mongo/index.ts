@@ -12,7 +12,7 @@ import { Creator } from './creator';
 
 (async function dbConnection() {
     try {
-        await connect('mongodb://127.0.0.1:27017/blackx');
+        await connect('mongodb+srv://henocmusau:suvPnZOoq1G5Ji0Y@cluster0.jmmupet.mongodb.net/?retryWrites=true&w=majority');
         console.log('Connected to Database : BlackX')
     } catch (error) {
         console.log('Une erreur de base des données est survenue')
