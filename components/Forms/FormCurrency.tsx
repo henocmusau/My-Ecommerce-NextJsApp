@@ -15,19 +15,14 @@ export default function FormCurrency({ closeForm }: { closeForm: () => void }) {
 
         if (!label || label.length < 1 || !symbol || symbol.length < 1) return toast(<Toast type='error' text={'Données incomplètes. Veuillez remplir les champs obligatoires.'} />)
 
-
         const datas = await createNewCurrency(formData)
-        // if (datas.error.message == 'ValidationError') {
-        //     console.log('Les données fournis sont incorrectes.')
-        //     return
-        // }
+
         if (datas.error) {
             toast(<Toast type='error' text={datas.error.message.toString()} />)
             return
         }
         closeForm()
         toast(<Toast type='success' text='Enregistrement réussi !' />)
-        // console.log(datas)
     }
 
     return (

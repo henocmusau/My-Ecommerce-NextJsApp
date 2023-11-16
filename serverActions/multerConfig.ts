@@ -1,23 +1,25 @@
-import multer from 'multer'
+/*import multer from 'multer'
 
 const MIME_TYPES = {
-  'image/jpg': 'jpg',
-  'image/jpeg': 'jpg',
-  'image/png': 'png'
+    'image/jpg': 'jpg',
+    'image/jpeg': 'jpg',
+    'image/png': 'png'
 };
+
 
 const storage = multer.diskStorage({
 
-  destination: (req, file, callback) => {
-    callback(null, 'images');
-  },
+    destination: (req, file, callback) => {
+        callback(null, 'images');
+        file.mimetype
+    },
 
-  filename: (req, file, callback) => {
-    const name = file.originalname.split(' ').join('_');
-    const extension = MIME_TYPES[file.mimetype];
-    callback(null, name + Date.now() + '.' + extension);
-  }
+    filename: (req, file, callback) => {
+        const name: string = file.originalname.split(' ').join('_');
+        const extension = MIME_TYPES[file.mimetype];
+        callback(null, name + Date.now() + '.' + extension);
+    }
 
 });
 
-export const multerConfig = multer({ storage: storage }).single('image');
+export const multerConfig = multer({ storage: storage }).single('image'); */
