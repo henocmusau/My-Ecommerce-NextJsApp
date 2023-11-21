@@ -19,8 +19,9 @@ export default function FormCreator({ closeForm }: { closeForm: () => void }) {
         const idCardNumber = formData.get('idCardNumber')?.toString().trim()
         const city = formData.get('city')?.toString().trim()
         const street = formData.get('street')?.toString().trim()
+        // console.log(image)
 
-        if (
+        /*if (
             !firstName
             || firstName.length < 2
             || !lastName
@@ -37,12 +38,12 @@ export default function FormCreator({ closeForm }: { closeForm: () => void }) {
         ) {
             toast(<Toast type='error' text={'Données incomplètes. Veuillez remplir les champs obligatoires.'} />)
             return
-        }
+        } */
 
         const datas = await createNewCreator(formData)
 
         if (datas.error) {
-            toast(<Toast type='error' text={datas.error.message.toString()} />)
+            toast(<Toast type='error' text={datas.error?.message.toString()} />)
             return
         }
         closeForm()
@@ -62,7 +63,7 @@ export default function FormCreator({ closeForm }: { closeForm: () => void }) {
                 </div>
                 <FormInput label='Téléphone' name='phoneNumber' />
                 <FormInput label='E-mail' name='email' />
-                <input type='image' name='image' />
+                <input type='file' accept='.jpg, .png, .jpeg, .webp' name='image' className='border-2 border-slate-400 w-full rounded-lg' />
                 <FormInput label='Ville' name='city' />
                 <FormInput label='Adresse' name='street' />
                 <FormInput label="N°Carte d'identité" name='idCardNumber' />
