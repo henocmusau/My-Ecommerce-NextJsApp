@@ -43,6 +43,15 @@ export default function MainModal() {
                     icon={AiOutlineBank}
                     description='Enregistrer une nouvelle dévise'
                 />
+
+                <MainModalAction
+                    id='PRODUCTTYPE'
+                    key='PRODUCTTYPE'
+                    openActionModal={switchForm}
+                    title='Nouveau type des produits'
+                    icon={AiOutlineBank}
+                    description="Création d'un nouveau type des produits (ex.: téléphones, ordinateurs, etc...)"
+                />
             </ModalContent>
 
             <FormModalWrapper back={back} activeForm={activeForm} closeForm={closeForm} />
