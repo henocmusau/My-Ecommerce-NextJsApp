@@ -56,7 +56,7 @@ export function CurrencyOptions({ currencyList }: { currencyList: any }) {
                 onChange={setSelectedOptions}
                 name='currency'
             >
-                <Listbox.Button className='w-full relative text-left hover:text-secondaryDark duration-150'>
+                <Listbox.Button className='w-full relative text-left hover:text-slate-500 dark:hover:text-secondaryDark duration-150'>
                     {selectedOptions?.label}
                     <AiOutlineArrowDown className='absolute right-0 top-0' />
                 </Listbox.Button>
@@ -66,7 +66,7 @@ export function CurrencyOptions({ currencyList }: { currencyList: any }) {
                 >
                     {currencyList.map((c: CurrencyType, i: number) => (
                         <Listbox.Option
-                            className='px-3 rounded-lg py-2 w-full dark:text-slate-400 hover:bg-secondaryDark duration-200'
+                            className='px-3 rounded-lg py-2 w-full hover:bg-slate-200 dark:text-slate-400 dark:hover:bg-secondaryDark duration-200'
                             key={i}
                             value={c}
                         >
