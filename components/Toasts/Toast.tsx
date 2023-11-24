@@ -6,7 +6,7 @@ AiFillWarning
 
 type Props = {
     text: string
-    type?: string
+    type?: 'success' | 'error' | 'warning' | 'info'
 }
 
 const iconClassName = 'w-8 h-8 mr-2'
@@ -22,8 +22,7 @@ export default function Toast({ text, type = 'success' }: Props) {
                 return defaultStyle + 'text-sky-500'
 
             case 'warning':
-                return defaultStyle + 'text-orange-500'
-
+                return defaultStyle + 'text-orange-400'
 
             default:
                 return defaultStyle + 'text-green-500'

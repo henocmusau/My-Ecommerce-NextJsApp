@@ -1,6 +1,12 @@
 import { Schema, model, models } from "mongoose";
 
-const currencySchema = new Schema({
+export interface CurrencyType {
+    id: string,
+    label: string,
+    symbol: string
+}
+
+const currencySchema = new Schema<CurrencyType>({
     symbol: {
         type: String,
         enum: {
@@ -19,4 +25,4 @@ const currencySchema = new Schema({
     }
 });
 
-export const Currency = models.Currency || model('Currency', currencySchema)
+export const Currency = models.Currency || model<CurrencyType>('Currency', currencySchema)

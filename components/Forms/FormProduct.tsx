@@ -1,15 +1,20 @@
 'use client'
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 
-import ModalContent from '../Modals/ModalContent'
 import FormInput from './FormInput'
 import SubmitButton from '../Buttons/SubmitButton'
+import useFetch from '@/hooks/useFetch'
+import { Currency } from '@/models/mongo'
+import { getAllCurrencies } from '@/serverActions/currency'
 
 type Props = {
     closeForm: () => void
 }
 
 export default function FormProduct({ closeForm }: Props) {
+    // const currencyList: any = getAllCurrencies()
+    const { data, isLoading } = useFetch('/api')
+    const currencyList: CurrencyType[] = data?.datas
 
     function onCreate(formData: FormData) {
         console.log(formData)
@@ -17,77 +22,55 @@ export default function FormProduct({ closeForm }: Props) {
     }
 
     return (
-        <form action={onCreate}>
-            <FormInput label='Titre' name='title' />
-            <FormInput label='Description' name='description' />
-            <FormInput label='Type de produit' name='type' />
-            <CurrencyOptions />
-            <FormInput label='Prix' name='price' />
-            <SubmitButton />
-        </form>
+        <Suspense fallback='Loading...'>
+            <form action={onCreate}>
+                <FormInput label='Titre' name='title' />
+                <FormInput label='Description' name='description' />
+                <FormInput label='Type de produit' name='type' />
+
+                {currencyList ? <CurrencyOptions currencyList={currencyList} /> : null}
+                <FormInput label='Prix' name='price' />
+                <SubmitButton />
+            </form>
+        </Suspense>
     )
 }
 
-type Currency = {
+interface CurrencyType {
     id: string
     symbol: string
     label: string
 }
 
-const devisesList: Currency[] = [
-    {
-        id: '65521013d9261dc908d1b073',
-        symbol: "$",
-        label: "Dollars Américains",
-    },
-    {
-        id: '65521324d9261dc908d1b07f',
-        symbol: "CDF",
-        label: "Francs Congolais",
-    },
-    {
-        id: '655224b8d9261dc908d1b090',
-        symbol: "EUR",
-        label: "Euro",
-    },
-]
 
 import { Listbox } from '@headlessui/react'
+import { AiOutlineArrowDown } from 'react-icons/ai'
 
-export function CurrencyOptions() {
-    const [query, setQuery] = useState('')
-    const [selectedOptions, setSelectedOptions] = useState(devisesList[0])
-
-    // console.log(selectedOptions)
-
-    // const filteredCurrencys =
-    //     query === ''
-    //         ? devisesList
-    //         : devisesList.filter((devise) => {
-    //             return devise.label.toLowerCase().includes(query.toLowerCase())
-    //         })
+export function CurrencyOptions({ currencyList }: { currencyList: any }) {
+    const [selectedOptions, setSelectedOptions] = useState(currencyList[0])
 
     return (
-        <div
-            className='relative items-center flex inputField inputBorder'
-        >
+        <div className='relative items-center w-full flex inputField inputBorder'>
             <Listbox
                 value={selectedOptions}
                 onChange={setSelectedOptions}
-                name='devise'
+                name='currency'
             >
-                <Listbox.Button>{selectedOptions.label} </Listbox.Button>
+                <Listbox.Button className='w-full relative text-left hover:text-secondaryDark duration-150'>
+                    {selectedOptions?.label}
+                    <AiOutlineArrowDown className='absolute right-0 top-0' />
+                </Listbox.Button>
                 <Listbox.Options
-                    className='absolute w-full border border-super
-                     top-0 left-0 px-2 py-3 shadow-xl bg-white backdrop-blur-md dark:bg-primaryDark'
+                    className='absolute w-full rounded-lg
+                     top-12 left-0 px-2 py-3 shadow-2xl border border-slate-800 bg-white backdrop-blur-md dark:bg-primaryDark'
                 >
-                    {devisesList.map((devise) => (
+                    {currencyList.map((c: CurrencyType, i: number) => (
                         <Listbox.Option
-                            className='odd:bg-super/20 px-3 rounded-lg py-2'
-                            key={devise.id}
-                            value={devise}
+                            className='px-3 rounded-lg py-2 w-full dark:text-slate-400 hover:bg-secondaryDark duration-200'
+                            key={i}
+                            value={c}
                         >
-                            {devise.label}
+                            {c.label}
                         </Listbox.Option>
                     ))}
                 </Listbox.Options>
@@ -95,4 +78,3 @@ export function CurrencyOptions() {
         </div>
     )
 }
-

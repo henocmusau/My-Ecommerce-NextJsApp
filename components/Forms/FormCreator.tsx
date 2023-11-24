@@ -21,7 +21,7 @@ export default function FormCreator({ closeForm }: { closeForm: () => void }) {
         const street = formData.get('street')?.toString().trim()
         // console.log(image)
 
-        /*if (
+        if (
             !firstName
             || firstName.length < 2
             || !lastName
@@ -36,13 +36,13 @@ export default function FormCreator({ closeForm }: { closeForm: () => void }) {
             || !street
             || street.length < 3
         ) {
-            toast(<Toast type='error' text={'Données incomplètes. Veuillez remplir les champs obligatoires.'} />)
+            toast(<Toast type='warning' text={'Données incomplètes. Veuillez remplir les champs obligatoires.'} />)
             return
-        } */
+        }
 
         const datas = await createNewCreator(formData)
 
-        if (datas.error) {
+        if (datas && datas.error) {
             toast(<Toast type='error' text={datas.error?.message.toString()} />)
             return
         }
