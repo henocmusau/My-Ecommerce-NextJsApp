@@ -6,11 +6,14 @@ import ProductsList from "@/components/Products/ProductsList"
 import { articles } from "@/constants/articles"
 import ModalButton from "@/components/Buttons/ModalButton"
 import MainModal from "@/components/Modals/MainModal"
+import { getAllProducts } from "@/serverActions/products"
 
 const products = articles
 const plans = articles.slice(2).reverse()
 
-export default function Home() {
+export default async function Home() {
+  const datas = await getAllProducts()
+  console.log(datas)
   return (
     <div className="mainWrapper">
 
