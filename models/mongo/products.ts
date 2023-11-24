@@ -10,10 +10,10 @@ const productSchema = new Schema({
     description: {
         trim: true,
         type: String,
-        minLength: [5, 'Désolé, la description doit avoir au moins 10 caractères'],
     },
-    type: {
-        type: Number,
+    productType: {
+        type: 'ObjectId',
+        ref: 'ProductType',
         required: [true, 'Le type du produit ne peut pas être nul.'],
     },
     image: {
@@ -22,7 +22,7 @@ const productSchema = new Schema({
         trim: true,
         required: [true, 'Il est impératif d\'inclure une image descriptif de l\'article']
     },
-    devise: {
+    currency: {
         type: 'ObjectId',
         ref: 'Currency',
         required: [true, 'Chaque article doit avoir une dévise'],
