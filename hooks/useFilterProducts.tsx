@@ -1,21 +1,21 @@
 'use client'
 import { useState } from 'react'
-import { ProductsList } from '@/types/Article';
+import { ProductItem2 } from '@/types/Article';
 
-export default function useFilterProducts(products: ProductsList) {
-    const [filter, setFilter] = useState<number[]>([])
+export default function useFilterProducts(products: ProductItem2[]) {
+    const [filter, setFilter] = useState<string[]>([])
 
-    const changeFilter = (id: number | 'reset') => {
+    const changeFilter = (id: string | 'reset') => {
         if (id === 'reset') return setFilter([])
         if (filter && filter.includes(id)) {
-            return setFilter(() => filter.filter((f: number) => f !== id))
+            return setFilter(() => filter.filter((f: string) => f !== id))
         }
         setFilter([...filter, id])
     }
 
-    const filterProducts = (): ProductsList => {
+    const filterProducts = (): ProductItem2[] => {
         if (filter.length < 1) return products
-        return products.filter(p => filter.includes(p.type))
+        return products.filter(p => filter.includes(p.productsType._id))
     }
 
     const filteredProducts = filterProducts()

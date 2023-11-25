@@ -3,7 +3,7 @@ import { connect } from 'mongoose'
 import { Currency } from './currency';
 import { Product } from './products';
 import { Creator } from './creator';
-import { ProductType } from './productsType';
+import { ProductsType } from './productsType';
 
 // (async function dbConnection() {
 try {
@@ -19,4 +19,4 @@ try {
 }
 // })()
 
-export { Currency, Product, Creator, ProductType }
+export { Currency, Product, Creator, ProductsType }

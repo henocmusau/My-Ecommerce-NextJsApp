@@ -11,9 +11,9 @@ const productSchema = new Schema({
         trim: true,
         type: String,
     },
-    productType: {
+    productsType: {
         type: 'ObjectId',
-        ref: 'ProductType',
+        ref: 'ProductsType',
         required: [true, 'Le type du produit ne peut pas être nul.'],
     },
     image: {
@@ -40,20 +40,3 @@ const productSchema = new Schema({
 }, { timestamps: true });
 
 export const Product = models.Product || model('Product', productSchema)
-
-// const deviseSchema = new Schema({
-//     label: {
-//         type: String,
-// enum: {
-//     values: [
-//         { label: 'Francs Congolais', symbol: 'CDF' },
-//         { label: 'Dollars Américains', symbol: '$' },
-//     ],
-//     message: 'Les deux valeurs autorisées pour le symbole sont : CDF et $.'
-// },
-// required: [true, 'Le nom et le symbole de la dévise sont réquis'],
-// unique: true
-//     }
-// });
-
-// export const Currency = model('Currency', deviseSchema)
