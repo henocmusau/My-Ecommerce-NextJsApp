@@ -50,7 +50,7 @@ export default function FormProduct({ closeForm }: Props) {
             toast(<Toast type='error' text={datas.error?.message.toString()} />)
             return
         }
-        // closeForm()
+        closeForm()
         toast(<Toast type='success' text='Enregistrement réussi !' />)
     }
 
@@ -141,7 +141,7 @@ export function ProductsTypeOptions({ productsTypeList }: { productsTypeList: Pr
                     {productsTypeList.map((p, i) => (
                         <Listbox.Option
                             className='px-3 rounded-lg py-2 w-full hover:bg-slate-200 dark:text-slate-400 dark:hover:bg-secondaryDark duration-200'
-                            key={p?.id}
+                            key={i}
                             value={p}
                         >
                             {p.label}

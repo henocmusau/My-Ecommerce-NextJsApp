@@ -15,7 +15,7 @@ export const uploadFile = async (image: Blob, target: string = 'creators') => {
         date.getMilliseconds().toString().padStart(2, '0')
 
     const buffer = Buffer.from(await image.arrayBuffer());
-    const uploadDir = join(process.cwd(), "uploads", `/${target}/`);
+    const uploadDir = join(process.cwd(), "public", `/${target}/`);
 
     // TRYING TO ACCESS TO UPLOAD DIRECTORY
     try {
@@ -46,7 +46,7 @@ export const uploadFile = async (image: Blob, target: string = 'creators') => {
         const uniqueSuffix = `${otherName}${Math.round(Math.random() * 1e9)}`;
         const filename = `${uniqueSuffix}${isAutorizedType}`;
         await writeFile(`${uploadDir}/${filename}`, buffer);
-        return `/uploads/${target}/` + filename
+        return `/${target}/` + filename
     } catch (err: any) {
         // console.log("Error while trying to upload a file\n", e);
         return null

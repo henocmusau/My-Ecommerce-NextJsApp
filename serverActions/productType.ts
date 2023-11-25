@@ -1,11 +1,11 @@
 'use server'
 
-import { ProductType } from '@/models/mongo'
+import { ProductsType } from '@/models/mongo'
 import { capitalize } from '@/utils/functions'
 
 export async function getAllProductsType() {
     try {
-        const datas = await ProductType.find()
+        const datas = await ProductsType.find()
         return JSON.parse(JSON.stringify(datas))
     } catch (error) {
         console.log('Devises introuvables')
@@ -18,7 +18,7 @@ export async function createNewProductType(formData: FormData) {
     const slug = formData.get('slug')?.toString().trim()
     if (!label || label.length < 2 || !slug || slug.length < 2) return null
     try {
-        const datas = JSON.parse(JSON.stringify(await ProductType.create({
+        const datas = JSON.parse(JSON.stringify(await ProductsType.create({
             label: capitalize(label),
             slug
         })))

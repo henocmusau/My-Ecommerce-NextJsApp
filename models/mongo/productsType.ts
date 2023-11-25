@@ -21,4 +21,4 @@ const productTypeSchema = new Schema<ProductType>({
     }
 });
 
-export const ProductType = models.ProductType || model<ProductType>('ProductType', productTypeSchema)
+export const ProductsType = models.ProductsType || model<ProductType>('ProductsType', productTypeSchema)

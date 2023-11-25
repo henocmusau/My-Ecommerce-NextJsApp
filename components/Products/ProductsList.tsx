@@ -1,10 +1,11 @@
 'use client'
 import React from 'react'
-import { ProductsList as List, ProductItem as Item } from '@/types/Article'
+import { ProductItem2 as Item } from '@/types/Article'
 import ProductItem from './ProductItem'
 import FilterButton from '../Buttons/FilterButton'
 import useFilterProducts from '@/hooks/useFilterProducts'
 import { createPortal } from 'react-dom'
+import useFetch from '@/hooks/useFetch'
 
 const filters = [
     {
@@ -21,7 +22,18 @@ const filters = [
     },
 ]
 
-export default function ProductsList({ products }: { products: List }) {
+interface ProductType {
+    id: string
+    slug: string
+    label: string
+}
+
+export default function ProductsList({ products }: { products: Item[] }) {
+    const { data: types } = useFetch('/api/productstype')
+    const productsTypeList: ProductType[] = types?.datas
+
+    console.log(productsTypeList)
+
     const { filteredProducts, changeFilter, filter } = useFilterProducts(products)
 
     return (
@@ -29,9 +41,9 @@ export default function ProductsList({ products }: { products: List }) {
             <section className='filters'>
                 <FilterButton handleClick={changeFilter} f={filter} id='reset' label='Tous' />
                 {
-                    filters.map((f, i) => (
+                    productsTypeList ? productsTypeList.map((f, i) => (
                         <FilterButton key={i} {...f} handleClick={changeFilter} f={filter} />
-                    ))
+                    )) : null
                 }
             </section>
             <section className='productsList'>

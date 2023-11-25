@@ -4,6 +4,7 @@ import { Product } from '@/models/mongo'
 import { NextRequest } from 'next/server'
 import { Blob } from 'buffer'
 import { uploadFile } from '@/utils/libs/uploadFiles'
+import { revalidatePath } from "next/cache";
 
 export async function createNewProduct(formData: FormData) {
     const title = formData.get('title')?.toString().trim()
@@ -39,11 +40,13 @@ export async function createNewProduct(formData: FormData) {
             title,
             description,
             price,
-            productType: type,
+            productsType: type,
             image: imageUrl,
             currency,
-            creator: "655dc5858174a5190110130b"
+            creator: "65614bcc6c869d329f31dfb6"
         })
+
+        revalidatePath('/')
 
         return JSON.parse(JSON.stringify(datas))
 
@@ -63,10 +66,11 @@ export async function getAllProducts() {
         const datas = await Product.find()
             .populate('creator', ['firstName', 'lastName', 'image'])
             .populate('currency')
-            .populate('producttype')
+            .populate('productsType', 'label')
+        // .exec()
         return JSON.parse(JSON.stringify(datas))
     } catch (error) {
-        console.log('Produits introuvables')
+        console.error('Produits introuvables', error)
         return null
     }
 }
