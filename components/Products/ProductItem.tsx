@@ -13,7 +13,6 @@ import ProductItemImage from './ProductItemImage';
 
 
 export default function ProductItem({ _id, productsType, creator, title, description, image, price, currency }: ProductItem2) {
-    console.log(image)
     return (
         <article
             className='md:rounded-xl flex flex-col bg-white/80 md:shadow-md group dark:bg-primaryDark dark:text-secondaryDark'

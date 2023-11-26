@@ -23,7 +23,7 @@ const filters = [
 ]
 
 interface ProductType {
-    id: string
+    _id: string
     slug: string
     label: string
 }
@@ -32,14 +32,12 @@ export default function ProductsList({ products }: { products: Item[] }) {
     const { data: types } = useFetch('/api/productstype')
     const productsTypeList: ProductType[] = types?.datas
 
-    console.log(productsTypeList)
-
     const { filteredProducts, changeFilter, filter } = useFilterProducts(products)
 
     return (
         <>
             <section className='filters'>
-                <FilterButton handleClick={changeFilter} f={filter} id='reset' label='Tous' />
+                <FilterButton handleClick={changeFilter} f={filter} _id='reset' label='Tous' />
                 {
                     productsTypeList ? productsTypeList.map((f, i) => (
                         <FilterButton key={i} {...f} handleClick={changeFilter} f={filter} />

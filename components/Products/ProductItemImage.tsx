@@ -22,7 +22,8 @@ export default function ProductItemImage({ imageUrl, altText }: Props) {
                 className='h-60 md:h-72 lg:h-60 object-cover w-full group-hover:scale-125 duration-150'
                 src={imageUrl}
                 alt={altText}
-                // placeholder='blur'
+                placeholder='blur'
+                blurDataURL={`data:image/svg+xml;base64,${imageUrl}`}
                 height={240}
                 width={200}
             />
