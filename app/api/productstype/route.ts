@@ -5,7 +5,7 @@ export async function GET(req: Request) {
 
     try {
         const datas = await ProductsType.find()
-        return NextResponse.json({ datas }, { status: 400 })
+        return NextResponse.json({ datas }, { status: 200 })
     } catch (error: any) {
         return NextResponse.json({ error }, { status: 400 })
     }

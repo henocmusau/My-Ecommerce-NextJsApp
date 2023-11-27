@@ -67,6 +67,22 @@ export async function getAllProducts() {
             .populate('creator', ['firstName', 'lastName', 'image'])
             .populate('currency')
             .populate('productsType', 'label')
+            .sort('-createdAt')
+        // .exec()
+        return JSON.parse(JSON.stringify(datas))
+    } catch (error) {
+        console.error('Produits introuvables', error)
+        return null
+    }
+}
+
+export async function getProductById(id: string) {
+    try {
+        const datas = await Product.findById(id)
+            .populate('creator', ['firstName', 'lastName', 'image'])
+            .populate('currency')
+            .populate('productsType', 'label')
+        console.log('Datas :', datas)
         // .exec()
         return JSON.parse(JSON.stringify(datas))
     } catch (error) {

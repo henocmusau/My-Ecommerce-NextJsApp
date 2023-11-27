@@ -76,6 +76,19 @@
   @apply w-full bg-transparent mt-4 focus:bg-slate-100 dark:focus:bg-super/10 h-10 px-4 py-5 rounded-lg;
 }
 
+/* HEADINGS */
+.heading-one {
+  @apply font-semibold text-3xl;
+}
+
+.heading-two {
+  @apply font-semibold text-2xl;
+}
+
+.heading-three {
+  @apply text-xl;
+}
+
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
