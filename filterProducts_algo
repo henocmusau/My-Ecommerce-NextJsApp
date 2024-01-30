@@ -1,0 +1,23 @@
+//ALGORITHME DE TRI DES ARTICLES 
+
+
+Fonction trier_articles(utilisateur, articles)
+    // Initialiser un tableau vide pour stocker les scores des articles
+    scores = []
+    // Définir les poids relatifs des deux méthodes de recommandation
+    poids_contenu = 0.5
+    poids_collaboratif = 0.5
+    // Pour chaque article
+    Pour chaque article dans articles
+        // Calculer le score de similarité basé sur le contenu
+        score_contenu = calculer_score_contenu(utilisateur, article)
+        // Calculer le score de similarité basé sur le collaboratif
+        score_collaboratif = calculer_score_collaboratif(utilisateur, article)
+        // Calculer le score final en combinant les deux scores pondérés
+        score_final = poids_contenu * score_contenu + poids_collaboratif * score_collaboratif
+        // Ajouter le score final au tableau des scores
+        scores.ajouter(score_final)
+    // Trier les articles par ordre décroissant de score
+    articles = trier_par_score(articles, scores)
+    // Retourner les articles triés
+    Retourner articles
